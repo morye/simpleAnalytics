@@ -10,8 +10,9 @@ export function addApiData(apiData) {
 }
 
 export function getAPIData() {
+	console.log(window.location);
   return dispatch => {
-    axios.get('../sample_data.json').then(response => {
+    axios.get('./public/json/sample_data.json').then(response => {
       dispatch(addApiData(response.data));
     });
   };
