@@ -2,40 +2,47 @@ import React from 'react';
 
 import ReactHighCharts from 'react-highcharts';
 
-const config = {
-  chart: {
-    plotBackgroundColor: null,
-    plotBorderWidth: null,
-    plotShadow: false,
-    type: 'pie'
-  },
-  title: {
-    text: ''
-  },
-  tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-  },
-  plotOptions: {
-    pie: {
-      allowPointSelect: true,
-      cursor: 'pointer',
-      dataLabels: {
-        enabled: false
-      },
-      showInLegend: true
-    }
-  },
-  series: [
-    {
-      name: 'Brands',
-      colorByPoint: true,
-      data: []
-    }
-  ]
-};
-
 class ChartView extends React.Component {
   render() {
+	let { viewGrid } = this.props;
+	const config = {
+	  chart: {
+		plotBackgroundColor: null,
+		plotBorderWidth: null,
+		plotShadow: false,
+		type: 'pie'
+	  },
+	  title: {
+		text: ''
+	  },
+	  tooltip: {
+		pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+	  },
+	  plotOptions: {
+		pie: {
+		  allowPointSelect: true,
+		  cursor: 'pointer',
+		  dataLabels: {
+			enabled: false
+		  },
+		  showInLegend: true
+		},
+		series: {
+			events: {
+				click: function(evt) {
+					viewGrid (evt.point.name);
+				}
+			}
+		}
+	  },
+	  series: [
+		{
+		  name: 'Brands',
+		  colorByPoint: true,
+		  data: []
+		}
+	  ]
+	};
     let list = [];
     if (this.props.data) {
       for (let item in this.props.data) {

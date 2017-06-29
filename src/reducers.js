@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_DATA, SET_YEAR } from './actions';
+import { FETCH_DATA, SET_YEAR, VIEW_GRID } from './actions';
 
 const apiData = (state = {}, action) => {
   if (action.type === FETCH_DATA) {
@@ -19,9 +19,19 @@ const fiscalYear = (state = { year: 'All' }, action) => {
   return state;
 };
 
+const viewProduct = (state = { product: '' }, action) => {
+  if (action.type === VIEW_GRID) {
+    return Object.assign({}, state, {
+      product: action.product
+    });
+  }
+  return state;
+};
+
 const rootReducer = combineReducers({
   apiData,
-  fiscalYear
+  fiscalYear,
+  viewProduct
 });
 
 export default rootReducer;
