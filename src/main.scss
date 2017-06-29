@@ -39,6 +39,12 @@ h1, h2, h3 {
 	font-size: 0.8rem;
 }
 
+.show {
+	display: block;
+}
+.hide {
+	display: none;
+}
 section {
 	background-color: #fff;
 	@extend .box_shadow;

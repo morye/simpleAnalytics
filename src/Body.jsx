@@ -56,7 +56,7 @@ class Body extends React.Component {
       <div id="body">
         <DropdownView onChange={this.props.setYear} data={data.year} />
         <ChartView data={data.chart} year={this.props.year} viewGrid={this.props.viewGrid} />
-        <GridView data={data.grid} year={this.props.year} />
+        <GridView data={data.grid} year={this.props.year} showGrid={this.props.product ? true:false} />
       </div>
     );
   }

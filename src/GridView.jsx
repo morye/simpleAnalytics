@@ -9,7 +9,7 @@ class GridView extends React.Component {
   
   render() {
     return (
-      <section className="container">
+      <section className={(this.props.showGrid?"show":"hide")+" container"}>
         <h3>Revenue Report, {this.props.year}, Database</h3>
         <div className="body gridView">
           <table>
