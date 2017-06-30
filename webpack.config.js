@@ -1,5 +1,5 @@
 var path = require('path');
-var env = process.env.NODE_ENV.trim();
+var env = process.env.NODE_ENV ? process.env.NODE_ENV.trim() : 'development';
 console.log("env: ", env);
 
 module.exports = {

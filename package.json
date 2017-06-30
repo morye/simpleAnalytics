@@ -5,11 +5,13 @@
     "dev": "webpack-dev-server",
     "format": "prettier --write --single-quote --print-width=120 \"src/**/*.{js,jsx,css}\"",
     "lint": "eslint **/*.{js,jsx} --quiet",
+	"server": "node server.js",
     "watch": "set NODE_ENV=development && webpack -d --watch"
   },
   "dependencies": {
     "axios": "0.16.1",
     "babel-register": "6.24.1",
+    "cors": "2.8.3",
     "express": "4.15.3",
     "lodash": "4.17.4",
     "prop-types": "15.5.10",

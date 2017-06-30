@@ -1,16 +1,13 @@
 # Simple Analytics Web App
 
-#### Set up environment
-
-Install dependencies.
-
+Launch server.
 ```sh
-$ npm install
+$ npm run server
 ```
 
-Once the installation completes, launch dev server.
+Open second command line window, run api.
 ```sh
-$ npm run dev
+$ npm run api
 ```
 
 Open your browser, go to [http://localhost:8080/](http://localhost:8080/)
