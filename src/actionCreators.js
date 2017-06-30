@@ -15,7 +15,7 @@ export function viewGridByProduct(product) {
 
 export function getAPIData() {
   return dispatch => {
-    axios.get('./public/json/sample_data.json').then(response => {
+    axios.get('/data').then(response => {
       dispatch(addApiData(response.data));
     });
   };
