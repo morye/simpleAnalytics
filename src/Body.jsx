@@ -31,20 +31,20 @@ class Body extends React.Component {
         } else {
           output.chart[sorted[x].product] += parseInt(sorted[x].revenue);
         }
-		if (this.props.product == sorted[x].product) {
-			if (!output.grid.length) {
-			  output.grid.push(Object.assign({}, sorted[x]));
-			} else if (
-			  output.grid[index].year == sorted[x].year &&
-			  output.grid[index].product == sorted[x].product &&
-			  output.grid[index].country == sorted[x].country
-			) {
-			  output.grid[index].revenue += parseInt(sorted[x].revenue);
-			} else {
-			  output.grid.push(Object.assign({}, sorted[x]));
-			  index++;
-			}
-		}
+        if (this.props.product == sorted[x].product) {
+          if (!output.grid.length) {
+            output.grid.push(Object.assign({}, sorted[x]));
+          } else if (
+            output.grid[index].year == sorted[x].year &&
+            output.grid[index].product == sorted[x].product &&
+            output.grid[index].country == sorted[x].country
+          ) {
+            output.grid[index].revenue += parseInt(sorted[x].revenue);
+          } else {
+            output.grid.push(Object.assign({}, sorted[x]));
+            index++;
+          }
+        }
       }
     }
     return output;
@@ -56,7 +56,7 @@ class Body extends React.Component {
       <div id="body">
         <DropdownView onChange={this.props.setYear} data={data.year} />
         <ChartView data={data.chart} year={this.props.year} viewGrid={this.props.viewGrid} />
-        <GridView data={data.grid} year={this.props.year} showGrid={this.props.product ? true:false} />
+        <GridView data={data.grid} year={this.props.year} showGrid={this.props.product ? true : false} />
       </div>
     );
   }
@@ -71,7 +71,7 @@ const mapStatetoProps = (state, ownProps) => {
   return {
     data: state.apiData.data,
     year: state.fiscalYear.year,
-	product: state.viewProduct.product
+    product: state.viewProduct.product
   };
 };
 
@@ -83,9 +83,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   setYear(year) {
     dispatch(selectFiscalYear(year));
   },
-  
-  viewGrid (product) {
-	dispatch(viewGridByProduct(product));
+
+  viewGrid(product) {
+    dispatch(viewGridByProduct(product));
   }
 });
 
